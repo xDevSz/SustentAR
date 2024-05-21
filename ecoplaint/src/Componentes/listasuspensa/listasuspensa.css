@@ -1,0 +1,25 @@
+.ListaSuspensa {
+  font-family: Arial, sans-serif;
+}
+
+.ListaSuspensa label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.ListaSuspensa select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+/* Estilos para alternar as cores dos itens da lista suspensa */
+.ListaSuspensa select option:nth-child(odd) {
+  background-color: rgb(255, 225, 147); /* Cor de fundo para itens ímpares */
+}
+
+.ListaSuspensa select option:nth-child(even) {
+  background-color: rgb(230, 230, 230); /* Cor de fundo para itens pares */
+}

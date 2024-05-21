@@ -1,0 +1,86 @@
+/* .Botao ==> Para enviar formulários e confirmar as coisas */
+.Botao {
+  margin: 0 auto;
+  display: block;
+  justify-content: center;
+  margin-bottom: 20px;
+  background-color: rgb(169, 237, 137);
+  color: rgb(89, 125, 72);
+  border-radius: 30px;
+  padding: 12px;
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  width: 70%;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: box-shadow 0.4s ease;
+}
+
+.Botao:hover {
+  background-color: rgb(129, 207, 97);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Adiciona sombra apenas no hover */
+}
+
+/* Direita/Esquerda/Central ==> Div onde os botões, os icones e o textobotao estão presentes */
+.Central,
+.Direita,
+.Esquerda {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.Central:hover,
+.Direita:hover,
+.Esquerda:hover {
+  filter: brightness(90%);
+  transform: scale(1.1);
+}
+
+.Central {
+  margin-top: -85px;
+}
+
+/* Botões esquerda/direita/central ==> Elementos do rodapé, respectivamente perfil/chat/denúncia */
+.BotaoEsquerda,
+.BotaoDireita,
+.BotaoCentral {
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+.BotaoEsquerda,
+.BotaoDireita {
+  background-color: rgb(133, 229, 87);
+  box-shadow: none; /* Remove a sombra */
+}
+
+.BotaoCentral {
+  width: 130px;
+  height: 130px;
+  background-color: rgb(39, 203, 55);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Adiciona sombra apenas no botão central */
+}
+
+/* icone ==> Imagem dentro do botão, TextoBotao ==> Texto abaixo do botão */
+.icone {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.TextoBotao {
+  font-weight: bold;
+  color: white;
+  font-size: 14px;
+  margin-top: 6px;
+  text-align: center;
+  position: relative;
+}

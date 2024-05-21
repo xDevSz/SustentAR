@@ -1,0 +1,26 @@
+.formulario {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.formulario form {
+  width: 80%;
+  border-radius: 80%;
+  padding: 5% 0%;
+}
+.erro {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  color: red;
+}
+h2,
+p {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+p {
+  font-size: large;
+}
