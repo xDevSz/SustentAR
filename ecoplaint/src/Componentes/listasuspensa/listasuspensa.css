@@ -1,25 +1,62 @@
-.ListaSuspensa {
+.dropdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
+  border-radius: 100px;
   font-family: Arial, sans-serif;
+  width: 300px;
+  background-color: #ffe193;
+  color: black;
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  margin-top: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  outline: none;
+  box-sizing: border-box;
 }
 
-.ListaSuspensa label {
+.dropdown-button::after {
+  content: ' ▼';
+  float: right;
+}
+
+.dropdown-content {
   display: block;
-  margin-bottom: 8px;
-}
-
-.ListaSuspensa select {
+  z-index: 1;
   width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
+  margin-top: 5px;
 }
 
-/* Estilos para alternar as cores dos itens da lista suspensa */
-.ListaSuspensa select option:nth-child(odd) {
-  background-color: rgb(255, 225, 147); /* Cor de fundo para itens ímpares */
+.dropdown-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 100px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  margin-bottom: 3px; /* Espaçamento entre os itens */
+  background-color: none; /* Remover completamente o fundo */
+  border: none; /* Remover a borda */
 }
 
-.ListaSuspensa select option:nth-child(even) {
-  background-color: rgb(230, 230, 230); /* Cor de fundo para itens pares */
+
+.dropdown-item.even {
+  background-color: #e6e6e6;
+}
+
+.dropdown-item.odd {
+  background-color: #ffe193;
+}
+
+.dropdown-item:hover {
+  background-color: #e1c378;
 }

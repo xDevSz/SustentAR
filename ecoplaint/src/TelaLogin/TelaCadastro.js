@@ -1,11 +1,11 @@
 /* eslint-disable react/react-in-jsx-scope */
 import FormularioCadastro from "../Componentes/formulario/formulariocadastro";
-import Logo from "../Componentes/logo";
+import LogoMenor from "../Componentes/logo/logomenor";
 
 function TelaCadastro() {
   return (
     <div className="TelaCadastro">
-      <Logo />
+      <LogoMenor />
       <FormularioCadastro />
     </div>
   );

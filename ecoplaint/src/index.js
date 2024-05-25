@@ -6,11 +6,13 @@ import TelaCadastro from "./TelaLogin/TelaCadastro";
 import TelaLogin from "./TelaLogin/TelaLogin";
 import TelaEsqueceuSenha from "./TelaLogin/TelaEsqueceuSenha";
 import TelaInicial from "./TelaLogin/TelaInicial";
+import TelaMapa from "./TelaLogin/TelaMapa";
+import TelaDenuncia from "./TelaLogin/TelaDenuncia";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <TelaInicial />
+    <TelaDenuncia />
   </React.StrictMode>
 );
 

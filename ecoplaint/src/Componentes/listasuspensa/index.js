@@ -1,21 +1,50 @@
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable react/prop-types */
-import "./listasuspensa.css";
+import React, { useState } from 'react';
+import './listasuspensa.css';
 
-const ListaSuspensa = (props) => {
-  console.log(props.itens);
+const ListaSuspensa = () => {
+  const options = [
+    "Queimadas Ambientais",
+    "Garimpo Ilegal",
+    "Pesca - Caça Ilegal",
+    "Desmatamento",
+    "Outro"
+  ];
+
+  const preSelectedOption = "Queimadas Ambientais"; // Opção pré-selecionada
+
+  const [selectedOption, setSelectedOption] = useState(preSelectedOption);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+    setIsOpen(false);
+  };
+
+  const toggleDropdown = (event) => {
+    event.preventDefault(); // Evita a atualização da página
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div className="ListaSuspensa">
-      <label>{props.label}</label>
-      <select
-        onChange={(evento) => props.aoAlterado(evento.target.value)}
-        required={props.required}
-        value={props.value}
-      >
-        {props.itens.map((item) => {
-          return <option key={item}>{item}</option>;
-        })}
-      </select>
+    <div className="dropdown-container">
+      <div className="dropdown">
+        <button className="dropdown-button" onClick={toggleDropdown}>
+          {selectedOption || "Selecione uma Opção"}
+        </button>
+        {isOpen && (
+          <div className="dropdown-content">
+            {options.filter(option => option !== selectedOption).map((option, index) => (
+              <div
+                key={index}
+                className={`dropdown-item ${index % 2 === 0 ? 'even' : 'odd'}`}
+                onClick={() => handleOptionClick(option)}
+              >
+                {option}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

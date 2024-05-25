@@ -1,11 +1,10 @@
 /* .Botao ==> Para enviar formulários e confirmar as coisas */
-.Botao {
+.Botao,
+.BtnDenuncia {
   margin: 0 auto;
   display: block;
   justify-content: center;
   margin-bottom: 20px;
-  background-color: rgb(169, 237, 137);
-  color: rgb(89, 125, 72);
   border-radius: 30px;
   padding: 12px;
   font-family: Arial, sans-serif;
@@ -16,11 +15,24 @@
   box-sizing: border-box;
   cursor: pointer;
   transition: box-shadow 0.4s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-
+.Botao {
+  background-color: rgb(169, 237, 137);
+  color: rgb(89, 125, 72);
+}
 .Botao:hover {
   background-color: rgb(129, 207, 97);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Adiciona sombra apenas no hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+.BtnDenuncia {
+  margin-top: 20px;
+  background-color: #F99F35;
+  color: rgb(255, 255, 255);
+}
+.BtnDenuncia:hover {
+  background-color: #da8c32;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Direita/Esquerda/Central ==> Div onde os botões, os icones e o textobotao estão presentes */

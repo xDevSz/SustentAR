@@ -2,7 +2,6 @@
 import "./formulario.css";
 import CampoTexto from "../campotexto";
 import Mapa from "../mapa";
-import Rodape from "../rodape";
 
 const FormularioInicial = () => {
   return (
@@ -12,7 +11,6 @@ const FormularioInicial = () => {
         <Mapa />
         <CampoTexto texto="Notificações" />
         <CampoTexto texto="Gráfico" />
-        <Rodape/>
       </form>
     </section>
   );

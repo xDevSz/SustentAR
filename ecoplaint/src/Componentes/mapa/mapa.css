@@ -4,11 +4,49 @@
   align-items: center;
   height: 30vh;
   width: 100%;
+  border: 3px solid #7dc784;
+  border-radius: 15px;
+}
+
+.MapaGrande {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70vh;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  border: solid #85e557;
+  border-top-width: 5vh;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-radius: 15px;
+  box-sizing: border-box;
 }
 
 .map-container {
   height: 100%;
   width: 100%;
-  border: 3px solid #7dc784;
+  position: relative;
   border-radius: 15px;
+}
+
+.map-container1 {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.map-title {
+  position: absolute;
+  top: -5vh; /* Ajuste a posição para sobrepor a borda */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: bold;
+  color: #1b2e11;
+  padding: 5px;
+  z-index: 999;
 }
