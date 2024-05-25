@@ -1,0 +1,23 @@
+.Inputs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.Inputs input {
+  padding: 16px;
+  border-radius: 15px;
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  width: 100%;
+  background-color: rgb(226, 226, 226);
+  border: none;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.Inputs input::placeholder {
+  color: rgb(113, 113, 113);
+  text-align: center;
+}

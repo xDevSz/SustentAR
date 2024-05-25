@@ -1,0 +1,53 @@
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8; /* Set opacity to 80% */
+  z-index: -1; /* Ensure they are in the background */
+}
+
+body::after {
+  width: 250px;
+  height: 250px;
+  top: -125px;
+  left: -50px;
+  background-color: #FFCB13;
+}
+
+body::before {
+  width: 250px;
+  height: 250px;
+  top: -30px;
+  left: -125px;
+  background-color: #FFD978;
+}
+
+.formulario {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  position: relative;
+}
+
+
+.formulario form {
+  width: 80%;
+  border-radius: 80%;
+  padding: 5% 0%;
+}
+.erro {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  color: red;
+}
+h2,
+p {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+p {
+  font-size: large;
+}

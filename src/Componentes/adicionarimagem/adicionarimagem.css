@@ -1,0 +1,64 @@
+.AdicionarImagem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 326px;
+  height: 262px;
+  margin: auto;
+  background-color: #f5f5f5;
+  border-radius: 25px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  transition: background-color 0.3s;
+  margin-top: 15px;
+}
+
+.AdicionarImagem:hover {
+  background-color: #e5e5e5;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);
+}
+
+
+.file-input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.file-text {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #36383F;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  margin: 0;
+  z-index: 1;
+}
+
+.file-image {
+  width: auto; /* Mantém a largura original da imagem */
+  height: auto; /* Mantém a altura original da imagem */
+  max-width: 100%; /* Garante que a imagem não exceda o tamanho do elemento pai */
+  max-height: calc(100% - 30px); /* Garante que a imagem não exceda o tamanho do elemento pai menos a margem inferior do texto */
+  object-fit: contain; /* Redimensiona a imagem para caber dentro do espaço sem distorcer */
+  margin-bottom: 30px; /* Adiciona uma margem inferior para afastar a imagem do texto */
+}
+
+.file-image.default-image {
+  width: 111px;
+  height: 111px;
+  z-index: 1;
+}
+

@@ -1,0 +1,25 @@
+.CampoTexto,
+.CampoTextoTop {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.CampoTexto p,
+.CampoTextoTop p {
+  padding: 8px;
+  border-radius: 100px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  width: 250px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.CampoTextoTop p {
+  margin-top: -25px;
+}
