@@ -1,7 +1,8 @@
+// ListaSuspensa.jsx
 import React, { useState } from 'react';
 import './listasuspensa.css';
 
-const ListaSuspensa = () => {
+const ListaSuspensa = ({ onSelect }) => {
   const options = [
     "Queimadas Ambientais",
     "Garimpo Ilegal",
@@ -18,6 +19,7 @@ const ListaSuspensa = () => {
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
+    onSelect(option); // Passa a opção selecionada para o componente pai
   };
 
   const toggleDropdown = (event) => {

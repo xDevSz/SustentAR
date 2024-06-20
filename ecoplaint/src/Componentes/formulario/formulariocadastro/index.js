@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import "./formulario.css";
+import "../formulario.css";
 
-import Botao from "../botao";
-import Inputs from "../inputs";
-import JaPossui from "../japossui";
+import Botao from "../../botao";
+import Inputs from "../../inputs";
+import JaPossui from "../../japossui";
+import { Link } from 'react-router-dom'
 
 const FormularioCadastro = () => {
   const [nome, setNome] = useState("");
@@ -60,8 +61,12 @@ const FormularioCadastro = () => {
           aoAlterado={(valor) => setConfSenha(valor)}
         />
         {erro && <p className="erro">{erro}</p>}
-        <Botao type="submit">CADASTRO</Botao>
-        <JaPossui />
+        <Link to="/">
+          <Botao type="submit">CADASTRO</Botao>
+        </Link>
+        <Link to="/">
+          <JaPossui />
+        </Link>
       </form>
     </section>
   );

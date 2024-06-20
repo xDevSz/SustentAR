@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
-import FormularioLogin from "../Componentes/formulario/formulariologin";
-import Logo from "../Componentes/logo";
+import FormularioLogin from "../../Componentes/formulario/formulariologin";
+import Logo from "../../Componentes/logo";
 
 function TelaLogin() {
   return (

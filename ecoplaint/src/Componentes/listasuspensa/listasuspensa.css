@@ -11,7 +11,6 @@
 
 .dropdown-button {
   border-radius: 100px;
-  font-family: Arial, sans-serif;
   width: 300px;
   background-color: #ffe193;
   color: black;
@@ -24,6 +23,13 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   outline: none;
   box-sizing: border-box;
+  font-weight: 600;
+  transition: box-shadow 0.3s ease;
+}
+
+.dropdown-button:hover {
+  background-color: #e1c378;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown-button::after {
@@ -41,13 +47,12 @@
 .dropdown-item {
   padding: 10px 20px;
   cursor: pointer;
-  border-radius: 100px; /* Bordas arredondadas */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-  margin-bottom: 3px; /* Espaçamento entre os itens */
-  background-color: none; /* Remover completamente o fundo */
-  border: none; /* Remover a borda */
+  border-radius: 100px;
+  margin-bottom: 3px;
+  border: none;
+  font-weight: 600; /* Define o peso da fonte como semi-bold (600) */
+  transition: background-color 0.3s ease; /* Adiciona uma transição suave na cor de fundo */
 }
-
 
 .dropdown-item.even {
   background-color: #e6e6e6;
@@ -60,3 +65,4 @@
 .dropdown-item:hover {
   background-color: #e1c378;
 }
+

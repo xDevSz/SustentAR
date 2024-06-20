@@ -1,5 +1,6 @@
-import FormularioEsqueceuSenha from "../Componentes/formulario/formularioesqueceusenha";
-import Logo from "../Componentes/logo";
+/* eslint-disable react/react-in-jsx-scope */
+import FormularioEsqueceuSenha from "../../Componentes/formulario/formularioesqueceusenha";
+import Logo from "../../Componentes/logo";
 
 function TelaEsqueceuSenha() {
   return (

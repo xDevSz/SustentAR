@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import "./formulario.css";
+import "../formulario.css";
 
-import Botao from "../botao";
-import Inputs from "../inputs";
-import CriarConta from "../criarconta";
-import EsqueceuSenha from "../esqueceusenha";
+import Botao from "../../botao";
+import Inputs from "../../inputs";
+import CriarConta from "../../criarconta";
+import EsqueceuSenha from "../../esqueceusenha";
+import { Link } from 'react-router-dom'
 
 const FormularioLogin = () => {
   const [email, setEmail] = useState("");
@@ -42,9 +43,16 @@ const FormularioLogin = () => {
           aoAlterado={(valor) => setSenha(valor)}
           tipo="password"
         />
-        {erro && <p className="erro">{erro}</p>} <Botao>LOGIN</Botao>
-        <CriarConta />
-        <EsqueceuSenha />
+
+        <Link to="/TelaInicial" className="link-sem-decoracao">
+          {erro && <p className="erro">{erro}</p>} <Botao>LOGIN</Botao>
+        </Link>
+        <Link to="/TelaCadastro" className="link-sem-decoracao">
+          <CriarConta />
+        </Link>
+        <Link to="/TelaEsqueceuSenha" className="link-sem-decoracao">
+          <EsqueceuSenha />
+        </Link>
       </form>
     </section>
   );

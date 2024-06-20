@@ -1,3 +1,5 @@
+/* formulario.css */
+
 body::before,
 body::after {
   content: '';
@@ -30,24 +32,60 @@ body::before {
   position: relative;
 }
 
-
 .formulario form {
   width: 80%;
   border-radius: 80%;
   padding: 5% 0%;
 }
-.erro {
+
+.erro,
+.confirmacao {
   display: flex;
   justify-content: center;
   margin: 10px 0;
+}
+
+.erro {
   color: red;
 }
+
+.confirmacao {
+  color: green;
+}
+
 h2,
 p {
   display: flex;
   justify-content: center;
   text-align: center;
 }
+
 p {
   font-size: large;
+}
+
+/* Links */
+.link-sem-decoracao {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Animation for notifications */
+.slide-right-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.slide-right-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.slide-right-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+.slide-right-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 300ms, transform 300ms;
 }

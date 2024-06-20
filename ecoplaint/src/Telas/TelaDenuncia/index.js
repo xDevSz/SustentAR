@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
-import FormularioDenuncia from "../Componentes/formulario/formulariodenuncia";
-import LogoDireita from "../Componentes/logo/logodireita";
+import FormularioDenuncia from "../../Componentes/formulario/formulariodenuncia";
+import LogoDireita from "../../Componentes/logo/logodireita";
 
 function TelaInicial() {
   return (

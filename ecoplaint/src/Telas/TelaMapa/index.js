@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
-import FormularioMapa from "../Componentes/formulario/formulariomapa";
-import LogoMenor from "../Componentes/logo/logomenor";
+import FormularioMapa from "../../Componentes/formulario/formulariomapa";
+import LogoMenor from "../../Componentes/logo/logomenor";
 
 
 function TelaMapa() {

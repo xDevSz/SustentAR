@@ -34,7 +34,6 @@
 }
 
 .file-text {
-  font-family: Arial, sans-serif;
   font-size: 16px;
   font-weight: bold;
   color: #36383F;
@@ -48,17 +47,17 @@
 }
 
 .file-image {
-  width: auto; /* Mantém a largura original da imagem */
-  height: auto; /* Mantém a altura original da imagem */
-  max-width: 100%; /* Garante que a imagem não exceda o tamanho do elemento pai */
-  max-height: calc(100% - 30px); /* Garante que a imagem não exceda o tamanho do elemento pai menos a margem inferior do texto */
-  object-fit: contain; /* Redimensiona a imagem para caber dentro do espaço sem distorcer */
-  margin-bottom: 30px; /* Adiciona uma margem inferior para afastar a imagem do texto */
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100% - 30px);
+  object-fit: contain;
+  margin-bottom: 30px;
 }
 
 .file-image.default-image {
-  width: 111px;
-  height: 111px;
+  width: 100px;
+  height: 100px;
   z-index: 1;
 }
 

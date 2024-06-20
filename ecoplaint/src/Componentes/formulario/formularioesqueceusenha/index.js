@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./formulario.css";
+import "../formulario.css";
 
-import Botao from "../botao";
-import Inputs from "../inputs";
+import Botao from "../../botao";
+import Inputs from "../../inputs";
 
 const TelaEsqueceuSenha = () => {
   const [email, setEmail] = useState("");
