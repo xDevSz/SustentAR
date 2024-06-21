@@ -13,10 +13,10 @@ const FormularioInicial = () => {
           <CampoTexto texto="Localização" />
           <Mapa />
         </Link>
-        <Link to="/TelaPlaceHolder" className="link-sem-decoracao">
+        <Link to="/TelaNotificacoes" className="link-sem-decoracao">
           <CampoTexto texto="Notificações" />
         </Link>
-        <Link to="/TelaPlaceHolder" className="link-sem-decoracao">
+        <Link to="/TelaGrafico" className="link-sem-decoracao">
           <CampoTexto texto="Gráfico" />
         </Link>
         <Rodape />

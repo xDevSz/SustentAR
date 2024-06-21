@@ -4,7 +4,7 @@ import "../formulario.css";
 import Botao from "../../botao";
 import Inputs from "../../inputs";
 import JaPossui from "../../japossui";
-import { Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'; // Importe o useNavigate e Link
 
 const FormularioCadastro = () => {
   const [nome, setNome] = useState("");
@@ -13,10 +13,13 @@ const FormularioCadastro = () => {
   const [confSenha, setConfSenha] = useState("");
   const [erro, setErro] = useState("");
 
+  const navigate = useNavigate(); // Hook para controle de navegação
+
   const aoSalvar = (evento) => {
     evento.preventDefault();
-    if (nome === " ") {
+    if (nome.trim() === "") {
       setErro("Insira um nome");
+      return;
     }
     if (senha.length < 8) {
       setErro("A senha deve ter pelo menos 8 caracteres.");
@@ -28,6 +31,9 @@ const FormularioCadastro = () => {
     }
     console.log("Form foi submetido => ", nome, email, senha);
     setErro("");
+
+    // Redirecionar para a página inicial após a validação bem-sucedida
+    navigate("/");
   };
 
   return (
@@ -61,10 +67,8 @@ const FormularioCadastro = () => {
           aoAlterado={(valor) => setConfSenha(valor)}
         />
         {erro && <p className="erro">{erro}</p>}
-        <Link to="/">
-          <Botao type="submit">CADASTRO</Botao>
-        </Link>
-        <Link to="/">
+        <Botao type="submit">CADASTRO</Botao>
+        <Link to="/" className="link-sem-decoracao">
           <JaPossui />
         </Link>
       </form>

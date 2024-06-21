@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Importe o Link do react-router-dom
 import "../formulario.css";
 
 import Botao from "../../botao";
@@ -43,9 +44,14 @@ const TelaEsqueceuSenha = () => {
           <Botao>ENVIAR</Botao>
         </form>
       ) : (
-        <p className="sucesso">
-          Um e-mail de recuperação foi enviado para {email}
-        </p>
+        <div>
+          <p className="sucesso">
+            Um e-mail de recuperação foi enviado para {email}
+          </p>
+          <Link to="/" className="link-sem-decoracao">
+            <Botao>LOGIN</Botao>
+          </Link>
+        </div>
       )}
     </section>
   );

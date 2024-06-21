@@ -5,12 +5,14 @@ import Botao from "../../botao";
 import Inputs from "../../inputs";
 import CriarConta from "../../criarconta";
 import EsqueceuSenha from "../../esqueceusenha";
-import { Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'; // Importe o useNavigate e Link
 
 const FormularioLogin = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
+
+  const navigate = useNavigate(); // Hook para controle de navegação
 
   const aoSalvar = (evento) => {
     evento.preventDefault();
@@ -24,6 +26,9 @@ const FormularioLogin = () => {
     }
     console.log("Form foi submetido => ", email, senha);
     setErro("");
+
+    // Redirecionar para a página inicial após a validação bem-sucedida
+    navigate("/TelaInicial");
   };
 
   return (
@@ -43,10 +48,8 @@ const FormularioLogin = () => {
           aoAlterado={(valor) => setSenha(valor)}
           tipo="password"
         />
-
-        <Link to="/TelaInicial" className="link-sem-decoracao">
-          {erro && <p className="erro">{erro}</p>} <Botao>LOGIN</Botao>
-        </Link>
+        {erro && <p className="erro">{erro}</p>}
+        <Botao type="submit">LOGIN</Botao>
         <Link to="/TelaCadastro" className="link-sem-decoracao">
           <CriarConta />
         </Link>
@@ -57,4 +60,5 @@ const FormularioLogin = () => {
     </section>
   );
 };
+
 export default FormularioLogin;

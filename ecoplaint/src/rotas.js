@@ -4,7 +4,6 @@ import TelaEsqueceuSenha from "./Telas/TelaEsqueceuSenha";
 import TelaInicial from "./Telas/TelaInicial";
 import TelaMapa from "./Telas/TelaMapa";
 import TelaDenuncia from "./Telas/TelaDenuncia";
-import TelaPlaceHolder from "./Telas/PlaceHolder"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
 
@@ -18,7 +17,6 @@ export default function Rotas() {
               <Route path="/TelaInicial" element={<TelaInicial />} />
               <Route path="/TelaCadastro" element={<TelaCadastro />} />
               <Route path="/TelaEsqueceuSenha" element={<TelaEsqueceuSenha />} />
-              <Route path="/TelaPlaceHolder" elements={<TelaPlaceHolder />}/>
           </Routes>
           
       </BrowserRouter>

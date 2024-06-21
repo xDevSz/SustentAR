@@ -1,5 +1,5 @@
 // FormularioDenuncia.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../formulario.css";
 import CampoTextoTop from "../../campotexto/campotextotop";
 import AdicionarImagem from "../../adicionarimagem";
@@ -15,6 +15,25 @@ const FormularioDenuncia = () => {
   const [confirmacao, setConfirmacao] = useState("");
   const [reset, setReset] = useState(false);
   const [opcaoSelecionada, setOpcaoSelecionada] = useState("Queimadas Ambientais"); // Opção padrão
+  const [localizacao, setLocalizacao] = useState({ latitude: null, longitude: null });
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLocalizacao({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.error("Erro ao obter localização:", error);
+        }
+      );
+    } else {
+      console.error("Geolocalização não é suportada pelo navegador.");
+    }
+  }, []);
 
   const aoEnviar = (evento) => {
     evento.preventDefault();
@@ -24,6 +43,7 @@ const FormularioDenuncia = () => {
       console.log("Formulário de denúncia enviado => ", {
         imagem,
         opcaoSelecionada,
+        localizacao,
       });
       setErro("");
       setConfirmacao("<strong>Sua denúncia foi enviada!</strong> Enviaremos atualizações assim que possível.");
