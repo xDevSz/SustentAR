@@ -1,7 +1,8 @@
-/* eslint-disable react/react-in-jsx-scope */
+import React from 'react';
 import "../formulario.css";
 import CampoTexto from "../../campotexto";
 import Mapa from "../../mapa";
+import TelaGrafico from '../../../Telas/TelaGrafico';
 import Rodape from "../../rodape";
 import { Link } from 'react-router-dom';
 
