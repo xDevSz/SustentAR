@@ -54,7 +54,8 @@ body::before {
 }
 
 h2,
-p {
+p,
+p1 {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -62,6 +63,12 @@ p {
 
 p {
   font-size: large;
+}
+
+p1 {
+  margin-top: 2%;
+  font-weight: bold;
+  color: #4d4d4d;
 }
 
 /* Links */

@@ -1,3 +1,6 @@
+/* CSS Simplificado para Dropdowns e ListaPerfil */
+
+/* Estilos compartilhados */
 .dropdown-container {
   display: flex;
   justify-content: center;
@@ -10,7 +13,7 @@
 }
 
 .dropdown-button {
-  border-radius: 100px;
+  border-radius: 10px; /* Bordas arredondadas */
   width: 300px;
   background-color: #ffe193;
   color: black;
@@ -24,7 +27,7 @@
   outline: none;
   box-sizing: border-box;
   font-weight: 600;
-  transition: box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .dropdown-button:hover {
@@ -47,11 +50,10 @@
 .dropdown-item {
   padding: 10px 20px;
   cursor: pointer;
-  border-radius: 100px;
+  border-radius: 10px; /* Bordas arredondadas */
   margin-bottom: 3px;
-  border: none;
-  font-weight: 600; /* Define o peso da fonte como semi-bold (600) */
-  transition: background-color 0.3s ease; /* Adiciona uma transição suave na cor de fundo */
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
 
 .dropdown-item.even {
@@ -66,3 +68,55 @@
   background-color: #e1c378;
 }
 
+/* Estilos específicos para ListaPerfil */
+.perfil-section {
+  margin-bottom: 20px; /* Aumentei a margem inferior para separar visualmente melhor */
+}
+
+.perfil-titulo {
+  background-color: #f1f1f1;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px; /* Bordas arredondadas */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Adiciona transição suave */
+  color: #1da02a; /* Cor do texto padrão */
+  background-color: #e4e4e4; /* Cor de fundo padrão */
+}
+
+.perfil-titulo:hover {
+  background-color: #bfbfbf; /* Cor de fundo ao passar o mouse */
+  color: #ffffff; /* Cor do texto ao passar o mouse */
+}
+
+.perfil-opcoes {
+  background-color: #e4e4e4;
+  border: 1px solid #ddd;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px; /* Bordas arredondadas */
+}
+
+.perfil-opcao {
+  padding: 10px 20px; /* Aumentei o padding para melhorar o espaçamento interno */
+  border-bottom: 1px solid #eee;
+  background-color: #e4e4e4; /* Cor de fundo padrão */
+  color: #1da02a; /* Cor do texto padrão */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 10px; /* Bordas arredondadas */
+  margin-bottom: 5px; /* Espaçamento entre os itens */
+}
+
+.perfil-opcao:last-child {
+  border-bottom: none;
+}
+
+.perfil-opcao:hover {
+  background-color: #bfbfbf; /* Cor de fundo ao passar o mouse */
+  color: #ffffff; /* Cor do texto ao passar o mouse */
+}

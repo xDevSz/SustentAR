@@ -1,6 +1,7 @@
 /* .Botao ==> Para enviar formulários e confirmar as coisas */
 .Botao,
-.BtnDenuncia {
+.BtnDenuncia,
+.Sair {
   margin: 0 auto;
   display: block;
   justify-content: center;
@@ -16,19 +17,41 @@
   transition: box-shadow 0.4s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
+
 .Botao {
   background-color: rgb(169, 237, 137);
   color: rgb(89, 125, 72);
 }
+
 .Botao:hover {
   background-color: rgb(129, 207, 97);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
+
+.Sair {
+  position: fixed; /* Fixa o botão na tela */
+  bottom: 35px; /* Define a distância do fundo da tela */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-50%); /* Centraliza horizontalmente */
+  width: 200px; /* Largura do botão */
+  background-color: #ef4f4f;
+  color: rgb(238, 231, 231);
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); /* Sombra mais destacada */
+}
+
+.Sair:hover {
+  background-color: rgb(207, 97, 97);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); /* Sombra mais destacada no hover */
+}
+
+
 .BtnDenuncia {
   margin-top: 20px;
-  background-color: #F99F35;
+  background-color: #f99f35;
   color: rgb(255, 255, 255);
 }
+
 .BtnDenuncia:hover {
   background-color: #da8c32;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);

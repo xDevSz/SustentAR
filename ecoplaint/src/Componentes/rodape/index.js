@@ -8,13 +8,13 @@ import { Link } from 'react-router-dom'
 const Rodape = () => {
   return (
     <footer className="rodape">
-      <Link to="/TelaDenuncia" className="link-sem-decoracao">
+      <Link to="/TelaPerfil" className="link-sem-decoracao">
         <BotaoEsquerda />
       </Link>
       <Link to="/TelaDenuncia" className="link-sem-decoracao">
         <BotaoCentral />
       </Link>
-      <Link to="/TelaDenuncia" className="link-sem-decoracao">
+      <Link to="/TelaChat" className="link-sem-decoracao">
         <BotaoDireita />
       </Link>
     </footer>
