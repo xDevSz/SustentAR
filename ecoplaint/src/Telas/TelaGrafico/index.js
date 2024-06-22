@@ -1,7 +1,7 @@
 // src/components/TelaGrafico/index.js
 import React from 'react';
-import './index.css';
 import CampoTexto from "../..//Componentes/campotexto";
+import './indexg.css'
 
 const TelaGrafico = () => {
     return (
@@ -14,7 +14,9 @@ const TelaGrafico = () => {
                 style={{ border: 'none' }}
                 title="Painel do Fogo"
             ></iframe>
+             <div className="espaco-verde"></div>
         </div>
+
         
     );
 };

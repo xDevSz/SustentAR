@@ -1,0 +1,8 @@
+.iconebox{
+    display: flex;
+    background-color: rgb(182, 182, 182);
+    border-radius: 10%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+    width: 100%;
+    height: auto;
+}

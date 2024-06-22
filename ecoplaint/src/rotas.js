@@ -7,6 +7,7 @@ import TelaDenuncia from "./Telas/TelaDenuncia";
 import TelaNotificacoes from "./Telas/TelaNotificacoes";
 import TelaPerfil from "./Telas/TelaPerfil";
 import TelaGrafico from "./Telas/TelaGrafico";
+import TelaContato from "./Telas/TelaContato";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
 
@@ -23,6 +24,7 @@ export default function Rotas() {
               <Route path="/TelaNotificacoes" element={<TelaNotificacoes />} />
               <Route path="/TelaPerfil" element={<TelaPerfil />} />
               <Route path="/TelaGrafico" element={<TelaGrafico />} />
+              <Route path="/TelaContato" element={<TelaContato />} />
           </Routes>
           
       </BrowserRouter>

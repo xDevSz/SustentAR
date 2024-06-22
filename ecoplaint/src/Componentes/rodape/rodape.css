@@ -6,8 +6,7 @@
   width: 100%;
   background-color: rgb(133, 229, 87);
   display: flex;
-  justify-content: space-between;
-  padding: 15px;
+  justify-content: space-around;
   z-index: 1;
 }
 

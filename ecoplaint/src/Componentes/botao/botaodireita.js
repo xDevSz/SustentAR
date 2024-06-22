@@ -7,9 +7,11 @@ const BotaoDireita = (props) => {
     <div className="Direita">
       <button className="BotaoDireita">
         {props.children}
-        <img src="/Imagens/Chat.png" alt="Chat" className="icone"/>
+        <img src="/Imagens/Chat3.png" alt="Chat" className="icone"/>
       </button>
-      <div className="TextoBotao">Chat</div>
+      <div className="TextoBotao">
+        Contatos
+      </div>
     </div>
   );
 };

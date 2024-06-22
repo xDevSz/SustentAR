@@ -14,7 +14,7 @@ const Rodape = () => {
       <Link to="/TelaDenuncia" className="link-sem-decoracao">
         <BotaoCentral />
       </Link>
-      <Link to="/TelaChat" className="link-sem-decoracao">
+      <Link to="/TelaContato" className="link-sem-decoracao">
         <BotaoDireita />
       </Link>
     </footer>
