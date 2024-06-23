@@ -1,8 +1,32 @@
 .iconebox{
     display: flex;
-    background-color: rgb(182, 182, 182);
-    border-radius: 10%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
     width: 100%;
-    height: auto;
+    height: 15vw;
+    padding: 10px;
+    margin: 0% 5% 5% 0%;
+
 }
+
+.content{
+padding: 0px 15px 15px 15px;
+justify-content: space-between;
+display: inline;
+}
+
+
+.descricao{
+font-size: 12px;
+font-weight: lighter;
+overflow-x: hidden;
+margin-top: 2px;
+}
+
+
+.foto{
+    height: 100%;
+}
+
+

@@ -1,20 +1,23 @@
-import React,{useState} from "react";
-import "./index.css"
-const Iconenotificacao () {
-return(
+import React from "react";
+import "./index.css";
+
+
+const Iconenotificacao = (props) => {
+  return (
     <div className="iconebox">
-        <div className="image">
-        
-        </div>
-        <div className="content">
-            <div className="titulo">
-                asdasdasdasd
-            </div>
-            <div className="descricao">
-                asdasdasd
-            </div>
-        </div>
+      <div className="image">
+
+      <img src="/Imagens/Logo.png" alt="Logo do ecoplaint" className="foto" />
+      </div>
+
+      <div className="content">
+
+        <div className="titulo">{props.titulo}</div>
+
+        <div className="descricao">{props.descricao}</div>
+      </div>
     </div>
-)
-}
-export default Iconenotificacao
+  );
+};
+
+export default Iconenotificacao;
