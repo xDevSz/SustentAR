@@ -11,6 +11,7 @@ const Formulariocontato = () => {
       <Iconenotificacao titulo= "(69) 3541-4233" descricao="SEDAM- GUAJARÁ MIRIM"></Iconenotificacao>
       <Iconenotificacao titulo= "(69) 3212-9605" descricao="Coord. de Povos Indigenas"></Iconenotificacao>
       <Iconenotificacao titulo= "(69) 3212-9613" descricao="Coord. de Proteção Ambiental"></Iconenotificacao>
+      <Iconenotificacao titulo= "(69) 3212-9613" descricao="Coord. de Proteção Ambiental"></Iconenotificacao>
       </form>
     </section>
   );
