@@ -1,6 +1,7 @@
 // ListaSuspensa.jsx
 import React, { useState } from 'react';
 import './listasuspensa.css';
+import DetalhesDenuncia from '../detalhesdenuncia';
 
 const ListaSuspensa = ({ onSelect }) => {
   const options = [
@@ -15,16 +16,31 @@ const ListaSuspensa = ({ onSelect }) => {
 
   const [selectedOption, setSelectedOption] = useState(preSelectedOption);
   const [isOpen, setIsOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleOptionClick = (option) => {
-    setSelectedOption(option);
-    setIsOpen(false);
-    onSelect(option); // Passa a opção selecionada para o componente pai
+    if (option === "Outro") {
+      setShowPopup(true);
+    } else {
+      setSelectedOption(option);
+      setIsOpen(false);
+      onSelect(option); // Passa a opção selecionada para o componente pai
+    }
   };
 
   const toggleDropdown = (event) => {
     event.preventDefault(); // Evita a atualização da página
     setIsOpen(!isOpen);
+  };
+
+  const handleConfirmarDetalhes = (detalhes) => {
+    setSelectedOption(`Outro - ${detalhes}`);
+    setShowPopup(false);
+    onSelect(`Outro - ${detalhes}`);
+  };
+
+  const handleCancelarDetalhes = () => {
+    setShowPopup(false);
   };
 
   return (
@@ -47,6 +63,12 @@ const ListaSuspensa = ({ onSelect }) => {
           </div>
         )}
       </div>
+      {showPopup && (
+        <DetalhesDenuncia 
+          onConfirm={handleConfirmarDetalhes}
+          onCancel={handleCancelarDetalhes}
+        />
+      )}
     </div>
   );
 };

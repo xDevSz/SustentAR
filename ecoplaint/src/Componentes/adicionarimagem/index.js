@@ -4,33 +4,43 @@ import './adicionarimagem.css';
 
 const AdicionarImagem = (props) => {
   const { aoSelecionar, reset } = props;
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]);
   const [registroAdicionado, setRegistroAdicionado] = useState(false);
 
   useEffect(() => {
     if (reset) {
-      setFile(null);
+      setFiles([]);
       setRegistroAdicionado(false);
     }
   }, [reset]);
 
   const handleFileChange = (event) => {
-    const selectedFile = event.target.files[0];
-    
-    if (selectedFile && selectedFile.type.startsWith('image/')) {
-      setFile(selectedFile);
+    const selectedFiles = Array.from(event.target.files);
+    const imageFiles = selectedFiles.filter(file => file.type.startsWith('image/'));
+
+    if (imageFiles.length > 0) {
+      const newFiles = [...files, ...imageFiles].slice(0, 4); // Limita a 4 imagens
+      setFiles(newFiles);
       setRegistroAdicionado(true);
-      aoSelecionar(selectedFile);
+      aoSelecionar(newFiles);
     } else {
-      alert('Por favor, selecione um arquivo de imagem.');
+      alert('Por favor, selecione arquivos de imagem.');
     }
+  };
+
+  const renderImages = () => {
+    return files.map((file, index) => (
+      <img key={index} src={URL.createObjectURL(file)} alt={`Imagem ${index + 1}`} className="file-image" />
+    ));
   };
 
   return (
     <div className="AdicionarImagem">
-      <img src={file ? URL.createObjectURL(file) : "/Imagens/Adicionar.png"} alt="Imagem" className={`file-image ${file ? '' : 'default-image'}`} />
-      <input type="file" className="file-input" onChange={handleFileChange} accept="image/*" />
-      <p className="file-text">{registroAdicionado ? "Registro adicionado!" : "Adicione seu registro"}</p>
+      <div className="image-preview">
+        {files.length > 0 ? renderImages() : <img src="/Imagens/Adicionar.png" alt="Adicionar Imagem" className="file-image default-image" />}
+      </div>
+      <input type="file" className="file-input" onChange={handleFileChange} accept="image/*" multiple />
+      <p className="file-text">{registroAdicionado ? "Registro(s) adicionado(s)!" : "Adicione seus registros"}</p>
     </div>
   );
 };

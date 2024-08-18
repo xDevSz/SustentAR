@@ -1,5 +1,5 @@
 // FormularioDenuncia.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../formulario.css";
 import CampoTextoTop from "../../campotexto/campotextotop";
 import AdicionarImagem from "../../adicionarimagem";
@@ -8,6 +8,7 @@ import ListaSuspensa from "../../listasuspensa";
 import ManterAnonimo from "../../manteranonimo";
 import Notificacao from "../../notificacoes";
 import { CSSTransition } from "react-transition-group";
+import Localizacao from "../../localizacao";
 
 const FormularioDenuncia = () => {
   const [imagem, setImagem] = useState(null);
@@ -15,30 +16,14 @@ const FormularioDenuncia = () => {
   const [confirmacao, setConfirmacao] = useState("");
   const [reset, setReset] = useState(false);
   const [opcaoSelecionada, setOpcaoSelecionada] = useState("Queimadas Ambientais"); // Opção padrão
-  const [localizacao, setLocalizacao] = useState({ latitude: null, longitude: null });
-
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setLocalizacao({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          });
-        },
-        (error) => {
-          console.error("Erro ao obter localização:", error);
-        }
-      );
-    } else {
-      console.error("Geolocalização não é suportada pelo navegador.");
-    }
-  }, []);
+  const [localizacao, setLocalizacao] = useState(null);
 
   const aoEnviar = (evento) => {
     evento.preventDefault();
     if (!imagem) {
       setErro("<strong>Erro:</strong> Por favor, adicione uma imagem para enviar a denúncia.");
+    } else if (!localizacao) {
+      setErro("<strong>Erro:</strong> Por favor, adicione uma localização.");
     } else {
       console.log("Formulário de denúncia enviado => ", {
         imagem,
@@ -63,6 +48,7 @@ const FormularioDenuncia = () => {
         <AdicionarImagem aoSelecionar={setImagem} reset={reset} />
         <ListaSuspensa onSelect={setOpcaoSelecionada} />
         <ManterAnonimo />
+        <Localizacao onChange={setLocalizacao} />
         <CSSTransition
           in={!!erro}
           timeout={300}
