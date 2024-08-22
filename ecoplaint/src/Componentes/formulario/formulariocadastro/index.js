@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "../formulario.css";
-
 import Botao from "../../botao";
 import Inputs from "../../inputs";
 import JaPossui from "../../japossui";
-import { useNavigate, Link } from 'react-router-dom'; // Importe o useNavigate e Link
+import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios'; // Importe o axios
 
 const FormularioCadastro = () => {
   const [nome, setNome] = useState("");
@@ -13,10 +13,11 @@ const FormularioCadastro = () => {
   const [confSenha, setConfSenha] = useState("");
   const [erro, setErro] = useState("");
 
-  const navigate = useNavigate(); // Hook para controle de navegação
+  const navigate = useNavigate();
 
-  const aoSalvar = (evento) => {
+  const aoSalvar = async (evento) => {
     evento.preventDefault();
+    
     if (nome.trim() === "") {
       setErro("Insira um nome");
       return;
@@ -29,11 +30,29 @@ const FormularioCadastro = () => {
       setErro("As senhas não coincidem.");
       return;
     }
-    console.log("Form foi submetido => ", nome, email, senha);
-    setErro("");
 
-    // Redirecionar para a página inicial após a validação bem-sucedida
-    navigate("/");
+    setErro(""); // Limpar mensagens de erro
+
+    try {
+      // Fazendo a requisição POST para o backend
+      const response = await axios.post('http://localhost:5001/api/cadastrar', { 
+        nome: nome,
+        email: email,
+        senha: senha
+      }, {
+        headers: {
+          'Content-Type': 'application/json' // Especificar o tipo de conteúdo
+        }
+      });
+
+      console.log("Resposta do servidor: ", response.data);
+
+      // Redirecionar para a página inicial após a validação bem-sucedida
+      navigate("/");
+    } catch (error) {
+      console.error("Erro ao cadastrar: ", error.response ? error.response.data : error.message);
+      setErro("Ocorreu um erro ao cadastrar. Tente novamente.");
+    }
   };
 
   return (
