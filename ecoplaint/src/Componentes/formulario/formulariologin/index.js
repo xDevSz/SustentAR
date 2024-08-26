@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "../formulario.css";
-
 import Botao from "../../botao";
 import Inputs from "../../inputs";
 import CriarConta from "../../criarconta";
 import EsqueceuSenha from "../../esqueceusenha";
-import { useNavigate, Link } from 'react-router-dom'; // Importe o useNavigate e Link
+import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios'; // Importe o axios
 
 const FormularioLogin = () => {
   const [email, setEmail] = useState("");
@@ -14,8 +14,9 @@ const FormularioLogin = () => {
 
   const navigate = useNavigate(); // Hook para controle de navegação
 
-  const aoSalvar = (evento) => {
+  const aoSalvar = async (evento) => {
     evento.preventDefault();
+    
     if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email)) {
       setErro("Por favor, insira um e-mail válido.");
       return;
@@ -24,11 +25,28 @@ const FormularioLogin = () => {
       setErro("A senha deve ter pelo menos 8 caracteres.");
       return;
     }
-    console.log("Form foi submetido => ", email, senha);
-    setErro("");
 
-    // Redirecionar para a página inicial após a validação bem-sucedida
-    navigate("/TelaInicial");
+    setErro(""); // Limpar mensagens de erro
+
+    try {
+      // Fazendo a requisição POST para o backend
+      const response = await axios.post('http://localhost:5001/api/login', { 
+        email: email,
+        senha: senha
+      }, {
+        headers: {
+          'Content-Type': 'application/json' // Especificar o tipo de conteúdo
+        }
+      });
+
+      console.log("Resposta do servidor: ", response.data);
+
+      // Redirecionar para a página inicial após o login bem-sucedido
+      navigate("/TelaInicial");
+    } catch (error) {
+      console.error("Erro ao fazer login: ", error.response ? error.response.data : error.message);
+      setErro("E-mail ou senha incorretos.");
+    }
   };
 
   return (

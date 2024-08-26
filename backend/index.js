@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '@Dudu2801',
+  password: 'ifro',
   database: 'ecoplaint',
   port: 3306
 });
@@ -54,3 +54,28 @@ app.post('/api/cadastrar', (req, res) => {
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
+
+// Endpoint para login
+app.post('/api/login', (req, res) => {
+  const { email, senha } = req.body;
+
+  if (!email || !senha) {
+    return res.status(400).send('E-mail e senha são obrigatórios.');
+  }
+
+  // Consulta para verificar se o usuário existe no banco
+  const query = 'SELECT * FROM usuarios WHERE usua_email = ? AND usua_senha = ?';
+  db.query(query, [email, senha], (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar usuário:', err);
+      return res.status(500).send('Erro no servidor');
+    }
+
+    if (results.length === 0) {
+      return res.status(401).send('E-mail ou senha incorretos.');
+    }
+
+    // Se o login for bem-sucedido, você pode enviar uma resposta de sucesso ou um token de autenticação
+    res.status(200).send('Login bem-sucedido!');
+  });
+});
