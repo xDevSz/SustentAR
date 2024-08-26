@@ -1,11 +1,14 @@
-/* eslint-disable react/react-in-jsx-scope */
+import React from "react";
+import { Link } from "react-router-dom";
 import "./esqueceusenha.css";
 
-const EsqueceuSenha = (props) => {
+const EsqueceuSenha = () => {
   return (
     <div className="EsqueceuSenha">
       <label>
-        <a href="index.js">Esqueceu sua senha?</a>
+        <Link to="/TelaEsqueceuSenha" className="link-sem-decoracao">
+          Esqueceu sua senha?
+        </Link>
       </label>
     </div>
   );

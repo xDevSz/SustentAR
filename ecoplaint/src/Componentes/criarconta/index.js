@@ -1,13 +1,13 @@
-/* eslint-disable react/react-in-jsx-scope */
-import "./criarconta.css";
+import React from "react";
+import { Link } from "react-router-dom";
+import "./criarconta.css"; // Supondo que tenha um arquivo CSS próprio
 
-const CriarConta = (props) => {
+const CriarConta = () => {
   return (
     <div className="CriarConta">
-      <label>
-        Não tem uma conta?<br></br>
-        <a href="index.js">Cadastrar-se.</a>
-      </label>
+      <Link to="/TelaCadastro" className="link-sem-decoracao">
+        Criar uma conta
+      </Link>
     </div>
   );
 };

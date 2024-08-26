@@ -4,15 +4,15 @@ import Botao from "../../botao";
 import Inputs from "../../inputs";
 import CriarConta from "../../criarconta";
 import EsqueceuSenha from "../../esqueceusenha";
-import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios'; // Importe o axios
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const FormularioLogin = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
 
-  const navigate = useNavigate(); // Hook para controle de navegação
+  const navigate = useNavigate();
 
   const aoSalvar = async (evento) => {
     evento.preventDefault();
@@ -26,22 +26,19 @@ const FormularioLogin = () => {
       return;
     }
 
-    setErro(""); // Limpar mensagens de erro
+    setErro("");
 
     try {
-      // Fazendo a requisição POST para o backend
       const response = await axios.post('http://localhost:5001/api/login', { 
         email: email,
         senha: senha
       }, {
         headers: {
-          'Content-Type': 'application/json' // Especificar o tipo de conteúdo
+          'Content-Type': 'application/json'
         }
       });
 
       console.log("Resposta do servidor: ", response.data);
-
-      // Redirecionar para a página inicial após o login bem-sucedido
       navigate("/TelaInicial");
     } catch (error) {
       console.error("Erro ao fazer login: ", error.response ? error.response.data : error.message);
@@ -68,12 +65,8 @@ const FormularioLogin = () => {
         />
         {erro && <p className="erro">{erro}</p>}
         <Botao type="submit">LOGIN</Botao>
-        <Link to="/TelaCadastro" className="link-sem-decoracao">
-          <CriarConta />
-        </Link>
-        <Link to="/TelaEsqueceuSenha" className="link-sem-decoracao">
-          <EsqueceuSenha />
-        </Link>
+        <CriarConta /> {/* Não envolva isso em outro <Link> */}
+        <EsqueceuSenha /> {/* Não envolva isso em outro <Link> */}
       </form>
     </section>
   );
