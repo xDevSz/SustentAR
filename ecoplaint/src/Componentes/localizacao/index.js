@@ -1,11 +1,13 @@
-// Localizacao.jsx
-import React, { useState, useEffect } from "react";
-import "./localizacao.css";
-import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+import React, { useState, useEffect } from 'react';
+import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
+import './localizacao.css';
+
+const libraries = ["places"]; // Defina as bibliotecas aqui
 
 const Localizacao = ({ onChange }) => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyBNnoMuVMgRRhrZptrmWufpJ9eDb18e0sk", // Substitua pela sua chave da API do Google Maps
+    googleMapsApiKey: "AIzaSyDdECDprVxG3en5tu_1BE-x5MxmthwVjXw", // Substitua pela sua chave da API do Google Maps
+    libraries, // Use a constante de bibliotecas aqui
   });
 
   const [mostraPopup, setMostraPopup] = useState(false);

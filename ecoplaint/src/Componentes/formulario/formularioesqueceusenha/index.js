@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Importe o Link do react-router-dom
+import { Link } from "react-router-dom"; 
 import "../formulario.css";
 
 import Botao from "../../botao";
@@ -8,24 +8,39 @@ import Inputs from "../../inputs";
 const TelaEsqueceuSenha = () => {
   const [email, setEmail] = useState("");
   const [erro, setErro] = useState("");
-  const [sucesso, setSucesso] = useState(false); // Para exibir uma mensagem de sucesso após o envio do formulário
+  const [sucesso, setSucesso] = useState(false);
 
-  const aoEnviar = (evento) => {
+  const aoEnviar = async (evento) => {
     evento.preventDefault();
+    
     if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email)) {
       setErro("Por favor, insira um e-mail válido.");
       return;
     }
-
-    // Aqui você pode adicionar a lógica para enviar o e-mail de recuperação de senha
-    // Por exemplo, uma chamada de API para enviar o e-mail com o link de redefinição de senha
-    // Após o envio bem-sucedido, você pode definir sucesso como true e exibir uma mensagem para o usuário
-
-    // Simulando sucesso por enquanto
-    console.log("E-mail enviado para:", email); // Mensagem no console
-    setSucesso(true);
-    setErro("");
+  
+    try {
+      // Fazendo uma chamada para a API de recuperação de senha
+      const response = await fetch('http://localhost:5001/api/forgot-password', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email })
+      });
+  
+      if (response.ok) {
+        setSucesso(true);
+        setErro("");
+      } else {
+        setErro("Erro ao enviar e-mail de recuperação. Tente novamente.");
+      }
+    } catch (error) {
+      console.error('Erro:', error);
+      setErro("Erro ao enviar e-mail. Verifique sua conexão.");
+    }
   };
+  
+  
 
   return (
     <section className="formulario">
