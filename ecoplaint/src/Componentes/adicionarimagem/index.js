@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
-import './adicionarimagem.css'; // Verifique se o caminho está correto
+import React, { useState, useEffect } from 'react';
+import './adicionarimagem.css';
 
 const AdicionarImagem = ({ aoSelecionar, reset }) => {
   const [imagemPreview, setImagemPreview] = useState(null);
 
+  useEffect(() => {
+    if (reset) {
+      setImagemPreview(null);
+    }
+  }, [reset]);
+
   const handleImageChange = (event) => {
-    const file = event.target.files[0];
+    const file = event.target.files[0]; // Seleciona apenas o primeiro arquivo
     if (file) {
-      setImagemPreview(URL.createObjectURL(file)); // Atualiza a pré-visualização
-      aoSelecionar(file); // Passa o arquivo diretamente
+      const previewUrl = URL.createObjectURL(file);
+      setImagemPreview(previewUrl);
+      aoSelecionar(file); // Passa apenas o arquivo único
     }
   };
 

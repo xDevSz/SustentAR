@@ -21,28 +21,36 @@ const FormularioDenuncia = () => {
 
   const aoEnviar = async (evento) => {
     evento.preventDefault();
-
+  
     if (!localizacao) {
       setErro("Por favor, adicione uma localização.");
       return;
     }
-
-    // Prepara os dados da denúncia
+  
     const dadosDenuncia = new FormData();
+  
     if (imagem) {
-      dadosDenuncia.append('imagens', imagem);
+      console.log('Imagem antes do envio:', imagem);
+      dadosDenuncia.append('imagens', imagem); // Apenas a primeira imagem
+    } else {
+      console.error("Nenhuma imagem foi selecionada");
     }
+  
     dadosDenuncia.append('opcaoSelecionada', opcaoSelecionada);
-    dadosDenuncia.append('localizacao', JSON.stringify(localizacao)); // Converte a localização para string JSON
-    dadosDenuncia.append('manterAnonimo', false); // Ajuste conforme necessário
-    dadosDenuncia.append('usuarioId', 2); // Ajuste conforme necessário
-
+    dadosDenuncia.append('localizacao', JSON.stringify(localizacao));
+    dadosDenuncia.append('manterAnonimo', false);
+    dadosDenuncia.append('usuarioId', 1);
+  
     try {
-      const response = await axios.post(apiUrl, dadosDenuncia, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
+      const token = localStorage.getItem('token');
+const response = await axios.post(apiUrl, dadosDenuncia, {
+  headers: {
+    'Content-Type': 'multipart/form-data',
+    'Authorization': `Bearer ${token}`,
+  },
+});
+
+
       console.log('Resposta do servidor:', response.data);
       setConfirmacao("Sua denúncia foi enviada!");
       setImagem(null);
@@ -54,6 +62,8 @@ const FormularioDenuncia = () => {
       setErro('Erro ao enviar denúncia.');
     }
   };
+  
+  
 
   return (
     <section className="formulario">

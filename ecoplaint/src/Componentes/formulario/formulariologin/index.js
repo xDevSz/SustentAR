@@ -39,6 +39,10 @@ const FormularioLogin = () => {
       });
 
       console.log("Resposta do servidor: ", response.data);
+
+      // Armazena o token JWT no localStorage
+      localStorage.setItem('token', response.data.token);
+
       navigate("/TelaInicial");
     } catch (error) {
       console.error("Erro ao fazer login: ", error.response ? error.response.data : error.message);
@@ -65,8 +69,8 @@ const FormularioLogin = () => {
         />
         {erro && <p className="erro">{erro}</p>}
         <Botao type="submit">LOGIN</Botao>
-        <CriarConta /> {/* Não envolva isso em outro <Link> */}
-        <EsqueceuSenha /> {/* Não envolva isso em outro <Link> */}
+        <CriarConta />
+        <EsqueceuSenha />
       </form>
     </section>
   );
