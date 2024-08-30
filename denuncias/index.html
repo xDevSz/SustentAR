@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização de Denúncias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Denúncias Feitas</h1>
+    <div id="denuncias-container">
+        <!-- Denúncias serão exibidas aqui -->
+    </div>
+
+    <!-- Coloque o script JavaScript aqui -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('/api/denuncias', {
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem('token')
+                    }
+                });
+                const denuncias = await response.json();
+
+                const container = document.getElementById('denuncias-container');
+                denuncias.forEach(denuncia => {
+                    const denunciaDiv = document.createElement('div');
+                    denunciaDiv.className = 'denuncia';
+
+                    const categoria = document.createElement('h3');
+                    categoria.textContent = `Categoria: ${denuncia.denu_categoria}`;
+                    denunciaDiv.appendChild(categoria);
+
+                    const localizacao = document.createElement('p');
+                    localizacao.textContent = `Localização: ${denuncia.denu_localizacao}`;
+                    denunciaDiv.appendChild(localizacao);
+
+                    if (denuncia.imagens.length > 0) {
+                        denuncia.imagens.forEach(imagem => {
+                            const imgElement = document.createElement('img');
+                            imgElement.src = `data:image/jpeg;base64,${imagem}`;
+                            imgElement.className = 'denuncia-imagem';
+                            denunciaDiv.appendChild(imgElement);
+                        });
+                    }
+
+                    container.appendChild(denunciaDiv);
+                });
+            } catch (error) {
+                console.error('Erro ao buscar as denúncias:', error);
+            }
+        });
+    </script>
+</body>
+</html>

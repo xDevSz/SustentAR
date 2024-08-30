@@ -1,0 +1,27 @@
+.EntrarAnonimo {
+  text-align: center;
+  padding: 5px;
+  margin: 20px auto; /* Adiciona espaçamento e centraliza o elemento */
+  width: 200px; /* Define a largura desejada do elemento */
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+
+.EntrarAnonimo a {
+  font-weight: bold;
+  text-decoration: underline;
+  color: black;
+  text-decoration: none;
+}
+
+.EntrarAnonimo:hover {
+  background-color: rgba(133, 229, 87, 0.5); /* Fundo sutil ao redor do texto em azul */
+  box-shadow: 0 0 5px rgba(60, 104, 39, 0.5); /* Sombra pequena ao redor em azul */
+  border-radius: 3px;
+}
+
+.EntrarAnonimo a:hover {
+  color: rgb(111, 0, 255); /* Cor do texto muda para azul no hover */
+  transition: color 0.3s ease; /* Animação simples na cor */
+}

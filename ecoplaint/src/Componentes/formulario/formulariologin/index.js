@@ -4,6 +4,7 @@ import Botao from "../../botao";
 import Inputs from "../../inputs";
 import CriarConta from "../../criarconta";
 import EsqueceuSenha from "../../esqueceusenha";
+import EntrarAnonimo from "../../entraranonimo"
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -71,6 +72,7 @@ const FormularioLogin = () => {
         <Botao type="submit">LOGIN</Botao>
         <CriarConta />
         <EsqueceuSenha />
+        <EntrarAnonimo />
       </form>
     </section>
   );

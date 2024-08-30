@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './manteranonimo.css';
 
-const ManterAnonimo = () => {
+const ManterAnonimo = ({ onChange }) => {
   const [anonimo, setAnonimo] = useState(false);
 
   const handleToggleAnonimo = () => {
-    setAnonimo(!anonimo);
+    const novoEstado = !anonimo;
+    setAnonimo(novoEstado);
+    onChange(novoEstado); // Passa o novo estado para o componente pai
   };
 
   return (
