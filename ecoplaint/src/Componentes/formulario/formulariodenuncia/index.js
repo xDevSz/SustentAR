@@ -18,7 +18,7 @@ const FormularioDenuncia = () => {
   const [localizacao, setLocalizacao] = useState(null);
   const [anonimo, setAnonimo] = useState(false); // Estado para anonimato
 
-  const apiUrl = 'http://localhost:5001/api/denuncia';
+  const apiUrl = 'https://backend-bice-beta.vercel.app/api/login';
 
   const aoEnviar = async (evento) => {
     evento.preventDefault();

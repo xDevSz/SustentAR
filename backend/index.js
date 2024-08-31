@@ -5,7 +5,7 @@ const mysql = require('mysql2');
 const multer = require('multer');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const secretKey = 'secreta'; // Guarde essa chave de forma segura
+const secretKey = process.env.SECRET_KEY || 'secreta'; // Guarde essa chave de forma segura
 
 const app = express();
 
@@ -26,6 +26,8 @@ const db = mysql.createConnection({
   database: 'ecoplaint',
   port: 3306
 });
+
+
 
 db.connect(err => {
   if (err) {

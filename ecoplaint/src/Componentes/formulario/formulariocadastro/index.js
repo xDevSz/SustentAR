@@ -13,26 +13,32 @@ const FormularioCadastro = () => {
   const [confSenha, setConfSenha] = useState("");
   const [erro, setErro] = useState("");
   const [sucesso, setSucesso] = useState(""); // Para mensagem de sucesso
+  const [loading, setLoading] = useState(false); // Estado de carregamento
 
   const navigate = useNavigate();
 
   const aoSalvar = async (evento) => {
     evento.preventDefault();
+    setLoading(true);  // Inicia o carregamento
     
     if (nome.trim() === "") {
       setErro("Insira um nome");
+      setLoading(false);  // Termina o carregamento em caso de erro
       return;
     }
     if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email)) {
       setErro("Por favor, insira um e-mail válido.");
+      setLoading(false);  // Termina o carregamento em caso de erro
       return;
     }
     if (senha.length < 8) {
       setErro("A senha deve ter pelo menos 8 caracteres.");
+      setLoading(false);  // Termina o carregamento em caso de erro
       return;
     }
     if (senha !== confSenha) {
       setErro("As senhas não coincidem.");
+      setLoading(false);  // Termina o carregamento em caso de erro
       return;
     }
 
@@ -40,7 +46,7 @@ const FormularioCadastro = () => {
     setSucesso(""); // Limpar mensagem de sucesso
 
     try {
-      const response = await axios.post('http://localhost:5001/api/cadastrar', { 
+      const response = await axios.post('https://backend-bice-beta.vercel.app/api/cadastrar', { 
         nome: nome,
         email: email,
         senha: senha
@@ -60,6 +66,8 @@ const FormularioCadastro = () => {
     } catch (error) {
       console.error("Erro ao cadastrar: ", error.response ? error.response.data : error.message);
       setErro("Ocorreu um erro ao cadastrar. Tente novamente.");
+    } finally {
+      setLoading(false);  // Termina o carregamento após o cadastro, com sucesso ou erro
     }
   };
 
@@ -95,7 +103,9 @@ const FormularioCadastro = () => {
         />
         {erro && <p className="erro">{erro}</p>}
         {sucesso && <p className="sucesso">{sucesso}</p>} {/* Exibe a mensagem de sucesso */}
-        <Botao type="submit">CADASTRO</Botao>
+        <Botao type="submit" disabled={loading}>
+          {loading ? 'Carregando...' : 'CADASTRO'}
+        </Botao>
         <Link to="/" className="link-sem-decoracao">
           <JaPossui />
         </Link>

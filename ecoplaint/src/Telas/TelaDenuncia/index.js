@@ -2,6 +2,7 @@
 import FormularioDenuncia from "../../Componentes/formulario/formulariodenuncia";
 import LogoDireita from "../../Componentes/logo/logodireita";
 
+
 function TelaInicial() {
   return (
     <div className="TelaInicial">

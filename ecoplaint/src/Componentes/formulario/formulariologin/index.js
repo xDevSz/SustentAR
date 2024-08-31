@@ -12,25 +12,29 @@ const FormularioLogin = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
+  const [loading, setLoading] = useState(false);  // Estado de carregamento
 
   const navigate = useNavigate();
 
   const aoSalvar = async (evento) => {
     evento.preventDefault();
+    setLoading(true);  // Inicia o carregamento
     
     if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email)) {
       setErro("Por favor, insira um e-mail válido.");
+      setLoading(false);  // Termina o carregamento em caso de erro
       return;
     }
     if (senha.length < 8) {
       setErro("A senha deve ter pelo menos 8 caracteres.");
+      setLoading(false);  // Termina o carregamento em caso de erro
       return;
     }
 
     setErro("");
 
     try {
-      const response = await axios.post('http://localhost:5001/api/login', { 
+      const response = await axios.post('https://backend-bice-beta.vercel.app/api/login', { 
         email: email,
         senha: senha
       }, {
@@ -43,11 +47,18 @@ const FormularioLogin = () => {
 
       // Armazena o token JWT no localStorage
       localStorage.setItem('token', response.data.token);
+      if (localStorage.getItem('token')) {
+        console.log('Token salvo com sucesso');
+      } else {
+        console.error('Falha ao salvar o token');
+      }
 
       navigate("/TelaInicial");
     } catch (error) {
       console.error("Erro ao fazer login: ", error.response ? error.response.data : error.message);
       setErro("E-mail ou senha incorretos.");
+    } finally {
+      setLoading(false);  // Termina o carregamento após o login, com sucesso ou erro
     }
   };
 
@@ -69,7 +80,9 @@ const FormularioLogin = () => {
           tipo="password"
         />
         {erro && <p className="erro">{erro}</p>}
-        <Botao type="submit">LOGIN</Botao>
+        <Botao type="submit" disabled={loading}>
+          {loading ? 'Carregando...' : 'LOGIN'}
+        </Botao>
         <CriarConta />
         <EsqueceuSenha />
         <EntrarAnonimo />
