@@ -1,24 +1,47 @@
-/* src/components/TelaGrafico/TelaGrafico.css */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@100..800&display=swap');
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Para garantir que não haja barras de rolagem */
+}
 
 .tela-grafico {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.iframe-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.iframe-title {
+  position: absolute;
+  top: 10px; /* Ajuste a posição do título conforme necessário */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  font-weight: bold;
+  color: #1b2e11;
+  padding: 5px;
+  z-index: 999;
 }
 
 .espaco-verde {
-  width: 100%;
-  height: 143px; /* Ajuste a altura conforme necessário */
-  background-color: green;
-  margin-top: 20px; /* Espaçamento entre o iframe e o espaço verde */
+  display: none; /* Removido para ocupar toda a tela com o gráfico */
 }
-
-.tela-grafico h1 {
-  font-family: 'Sora' sans-serif; /* Fonte específica para o título */
-  font-size: 2em; /* Ajuste o tamanho da fonte conforme necessário */
-  text-align: center; /* Centraliza o texto dentro do h1 */
-  width: 100%; /* Garante que o h1 ocupe 100% da largura do contêiner */
-}
-
-

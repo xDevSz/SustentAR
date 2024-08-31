@@ -2,7 +2,6 @@ import React from 'react';
 import "../formulario.css";
 import CampoTexto from "../../campotexto";
 import Mapa from "../../mapa";
-import TelaGrafico from '../../../Telas/TelaGrafico';
 import Rodape from "../../rodape";
 import { Link } from 'react-router-dom';
 
@@ -14,12 +13,11 @@ const FormularioInicial = () => {
           <CampoTexto texto="Localização" />
           <Mapa />
         </Link>
-        <Link to="/TelaNotificacoes" className="link-sem-decoracao">
-          <CampoTexto texto="Notificações" />
-        </Link>
+        {/* Botão de Notificações removido */}
         <Link to="/TelaGrafico" className="link-sem-decoracao">
           <CampoTexto texto="Gráfico" />
         </Link>
+        {/* Removido o botão "Perfil" do formulário */}
         <Rodape />
       </form>
     </section>
@@ -27,3 +25,4 @@ const FormularioInicial = () => {
 };
 
 export default FormularioInicial;
+

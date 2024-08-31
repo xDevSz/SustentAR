@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));  // Limite aumen
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'alan',
+  password: '@Dudu2801',
   database: 'ecoplaint',
   port: 3306
 });
